@@ -60,14 +60,16 @@ namespace RecursiveBinarySearch
             int key = int.Parse(Console.ReadLine()),count = 0;
 
             fillArray(ref arr);
-            showArray(ref arr);
-            sortArray(arr);
+
+            showArray(arr);
+            sortArray(ref arr);
+
             Console.WriteLine("=================\nSorted:\n");
-            showArray(ref arr);
+            showArray(arr);
 
             for (int i = 0; i < arr.GetLength(0); i++)
             {
-                copy(ref arr,ref a,i);
+                copy(arr,ref a,i);
                 Console.WriteLine($"{i} row:");
                 if (BinarySearch(a, key, 0, a.Length - 1, ref count) == -1) Console.WriteLine("Not found");
                 Console.WriteLine("=================");
@@ -99,12 +101,12 @@ namespace RecursiveBinarySearch
             }
         }
 
-        private static void copy(ref int[,] arr, ref int[] a,int k)
+        private static void copy(in int[,] arr, ref int[] a,int k)
         {
-            for (int i = 0; i < arr.GetLength(0); i++) a[i] = arr[k, i];
+            for (int i = 0; i < arr.GetLength(1); i++) a[i] = arr[k, i];
         }
 
-        private static void showArray(ref int[,] arr)
+        private static void showArray(in int[,] arr)
         {
             for (int i = 0; i < arr.GetLength(0); i++)
             {
@@ -127,7 +129,7 @@ namespace RecursiveBinarySearch
             {
                 for (int j = 0; j < arr.GetLength(1); j++)
                 {
-                    arr[i, j] = random.Next(10);
+                    arr[i, j] = random.Next(0);
                 }
             }
         }
