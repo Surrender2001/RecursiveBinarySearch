@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31025.194
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecursiveBinarySearch", "RecursiveBinarySearch\RecursiveBinarySearch.csproj", "{CAAC31E7-D2CB-4B4D-B638-7B47C465AF5B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CAAC31E7-D2CB-4B4D-B638-7B47C465AF5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAAC31E7-D2CB-4B4D-B638-7B47C465AF5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAAC31E7-D2CB-4B4D-B638-7B47C465AF5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAAC31E7-D2CB-4B4D-B638-7B47C465AF5B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {678DFA91-84DC-43A6-9672-9BBD86497173}
+	EndGlobalSection
+EndGlobal
