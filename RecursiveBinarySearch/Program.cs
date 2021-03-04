@@ -19,12 +19,16 @@ namespace RecursiveBinarySearch
             }
 
             //средний индекс подмассива
-            var middle = (first + last) / 2;
+            int middle = (first + last) / 2;
             //значение в средине подмассива
-            var middleValue = array[middle];
+            int middleValue = array[middle];
 
             if (middleValue == searchedValue)
             {
+
+                Console.WriteLine("Index= "+middle);
+                BinarySearch(array, searchedValue, first, middle - 1);
+                BinarySearch(array, searchedValue, middle + 1, last);
                 return middle;
             }
             else
@@ -45,7 +49,7 @@ namespace RecursiveBinarySearch
 
         static void Main(string[] args)
         {
-            int[] a = { 1, 1, 1, 1, 1 };
+            int[] a = { 1, 1, 1,1,1,1 };
             
             Console.WriteLine(BinarySearch(a, 1, 0, a.Length - 1));
         }
