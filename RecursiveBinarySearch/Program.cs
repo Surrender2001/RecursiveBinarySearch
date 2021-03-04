@@ -6,11 +6,14 @@ using System.Threading.Tasks;
 
 namespace RecursiveBinarySearch
 {
+    
     class Program
     {
+        static int count = 0;
         //метод для рекурсивного бинарного поиска
         static int BinarySearch(int[] array, int searchedValue, int first, int last)
         {
+            count++;
             //границы сошлись
             if (first > last)
             {
@@ -26,7 +29,7 @@ namespace RecursiveBinarySearch
             if (middleValue == searchedValue)
             {
 
-                Console.WriteLine("Index= "+middle);
+                Console.WriteLine($"index= {middle}\tstep count= {count}");
                 BinarySearch(array, searchedValue, first, middle - 1);
                 BinarySearch(array, searchedValue, middle + 1, last);
                 return middle;
@@ -50,8 +53,12 @@ namespace RecursiveBinarySearch
         static void Main(string[] args)
         {
             int[] a = { 1, 1, 1,1,1,1 };
+
+                if (Array.Exists(a,i=>i==1))
+            {
+                Console.WriteLine(BinarySearch(a, 1, 0, a.Length - 1));
+            }
             
-            Console.WriteLine(BinarySearch(a, 1, 0, a.Length - 1));
         }
     }
 }
