@@ -101,7 +101,7 @@ namespace RecursiveBinarySearch
 
         private static void copy(in int[,] arr, ref int[] a,int k)
         {
-            for (int i = 0; i < arr.GetLength(0); i++) a[i] = arr[k, i];
+            for (int i = 0; i < arr.GetLength(1); i++) a[i] = arr[k, i];
         }
 
         private static void showArray(in int[,] arr)
@@ -127,7 +127,7 @@ namespace RecursiveBinarySearch
             {
                 for (int j = 0; j < arr.GetLength(1); j++)
                 {
-                    arr[i, j] = random.Next(10);
+                    arr[i, j] = random.Next(0);
                 }
             }
         }
