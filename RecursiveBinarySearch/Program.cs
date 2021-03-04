@@ -52,13 +52,87 @@ namespace RecursiveBinarySearch
 
         static void Main(string[] args)
         {
-            int[] a = { 1, 1, 1,1,1,1 };
+            Console.WriteLine("rows and columns: ");
+            int rows = int.Parse(Console.ReadLine()), cols = Convert.ToInt32(Console.ReadLine());
+            int[,] arr = new int[rows,cols];
+            int[] a = new int[cols];
+            Console.WriteLine("to find key:");
+            int key = int.Parse(Console.ReadLine());
 
-                if (Array.Exists(a,i=>i==1))
+            fillArray(ref arr);
+            showArray(ref arr);
+            sortArray(ref arr);
+            Console.WriteLine("=================\nSorted:\n");
+            showArray(ref arr);
+
+            for (int i = 0; i < arr.GetLength(0); i++)
             {
-                Console.WriteLine(BinarySearch(a, 1, 0, a.Length - 1));
+                copy(ref arr,ref a,i);
+                Console.WriteLine($"{i} row:");
+                if (Array.Exists(a, y => y == key)) BinarySearch(a, key, 0, a.Length - 1); else Console.WriteLine("Not found");
+                Console.WriteLine("=================");
+                count = 0;
             }
+
+
+
+                
             
+        }
+
+        private static void sortArray(ref int[,] arr)
+        {
+            int N = arr.GetLength(0), M = arr.GetLength(1),temp;
+            for (int k = 0; k <= (N * M); k++)//колличество проходов
+            {
+                //в строках упорядочиваем
+                for (int i = 0; i < N; i++)
+                {
+                    for (int j = 0; j < M - 1; j++)
+                    {
+                        if (arr[i, j] > arr[i, j + 1])
+                        {
+                            temp = arr[i, j];
+                            arr[i, j] = arr[i, j + 1];
+                            arr[i, j + 1] = temp;
+                        }
+                    }
+                }
+
+            }
+        }
+
+        private static void copy(ref int[,] arr, ref int[] a,int k)
+        {
+            for (int i = 0; i < arr.GetLength(0); i++) a[i] = arr[k, i];
+        }
+
+        private static void showArray(ref int[,] arr)
+        {
+            for (int i = 0; i < arr.GetLength(0); i++)
+            {
+                for (int j = 0; j < arr.GetLength(1); j++)
+                {
+                    Console.Write(arr[i,j]+"\t");
+                }
+                Console.WriteLine();
+            }
+
+
+
+
+        }
+
+        private static void fillArray(ref int[,] arr)
+        {
+            Random random = new Random();
+            for (int i = 0; i < arr.GetLength(0); i++)
+            {
+                for (int j = 0; j < arr.GetLength(1); j++)
+                {
+                    arr[i, j] = random.Next(10);
+                }
+            }
         }
     }
 }
