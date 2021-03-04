@@ -30,8 +30,8 @@ namespace RecursiveBinarySearch
             {
 
                 Console.WriteLine($"index= {middle}\tstep count= {count}");
-                BinarySearch(array, searchedValue, first, middle - 1,ref count);
-                BinarySearch(array, searchedValue, middle + 1, last,ref count);
+                BinarySearch(array, searchedValue, first, middle - 1, ref count);
+                BinarySearch(array, searchedValue, middle + 1, last, ref count);
                 return middle;
             }
             else
@@ -60,8 +60,10 @@ namespace RecursiveBinarySearch
             int key = int.Parse(Console.ReadLine()),count = 0;
 
             fillArray(ref arr);
+
             showArray(arr);
             sortArray(ref arr);
+
             Console.WriteLine("=================\nSorted:\n");
             showArray(arr);
 
@@ -69,7 +71,7 @@ namespace RecursiveBinarySearch
             {
                 copy(arr,ref a,i);
                 Console.WriteLine($"{i} row:");
-                if (BinarySearch(a, key, 0, a.Length - 1,ref count) == -1) Console.WriteLine("Not found");
+                if (BinarySearch(a, key, 0, a.Length - 1, ref count) == -1) Console.WriteLine("Not found");
                 Console.WriteLine("=================");
                 count = 0;
             }
@@ -77,7 +79,7 @@ namespace RecursiveBinarySearch
             
         }
 
-        private static void sortArray(ref int[,] arr)
+        private static void sortArray(in int[,] arr)
         {
             int N = arr.GetLength(0), M = arr.GetLength(1),temp;
             for (int k = 0; k <= (N * M); k++)//колличество проходов
